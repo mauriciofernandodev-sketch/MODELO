@@ -11,13 +11,13 @@
 }
 #nav{
     position: sticky;
-    
+
     /* mantém a navegação visível enquanto a página rola */
     top: 0;
     
     /* fixa a referência do sticky no topo da janela */
     z-index: 20;
-    
+
     /* garante que a nav fique acima de outros blocos */
     background-color: rgba(255, 255, 255, 0.432);
     
