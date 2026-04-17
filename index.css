@@ -17,7 +17,7 @@
     
     /* fixa a referência do sticky no topo da janela */
     z-index: 20;
-
+    
     /* garante que a nav fique acima de outros blocos */
     background-color: rgba(255, 255, 255, 0.432);
     
@@ -148,7 +148,7 @@
         
         /* reduz o espaçamento interno da barra em telas menores */
     }
-
+    
     #nav ul {
         gap: 10px 12px;
         
@@ -172,7 +172,7 @@
     background-image: url('paisagem.jpg');
     background-color: #000000;
     color: rgba(255, 255, 255, 0.95);
- /* rgb + canal alpha (transparência 0–1) */
+    /* rgb + canal alpha (transparência 0–1) */
     padding: 130px 20px;
     text-align: center;
     background-position: center;
@@ -193,6 +193,114 @@
     overflow: hidden;
 }
 
+.hero-badge-top {/* controla o espaçamento do btn que fica sozinho no topo */
+    margin-bottom: 28px; 
+    /* separa a cápsula superior do título */
+}
+
+#hero h1 {/* organiza a leitura do título principal no hero */
+    margin: 0 0 18px; 
+    /* remove margem de cima e cria espaço abaixo do título */
+}
+
+#hero p { /* ajusta o subtítulo logo abaixo do título principal */
+    margin: 0 0 30px; 
+    /* cria respiro entre o texto e a fileira de btn inferiores */
+}
+
+.hero-badges {/* organiza os btn em linha dentro do hero */
+    display: flex; 
+    /* coloca todos os btn lado a lado */
+    flex-direction: row; 
+    /* força a direção horizontal */
+    flex-wrap: wrap; 
+    /* permite quebrar linha se faltar espaço */
+    justify-content: center; 
+    /* centraliza o grupo de btn */
+    align-items: center; 
+    /* alinha os btn no mesmo eixo vertical */
+    gap: 12px; 
+    /* cria espaço entre um btn e outro */
+    margin-bottom: 28px; 
+    /* separa o grupo do botão de WhatsApp */
+}
+
+.btn { /* transforma cada div de destaque em uma cápsula horizontal */
+    display: inline-flex; 
+    /* coloca ícone e texto lado a lado */
+    align-items: center; 
+    /* centraliza verticalmente o ícone e o texto */
+    justify-content: center; 
+    /* centraliza o conteúdo dentro da cápsula */
+    gap: 10px; 
+    /* cria espaço entre a imagem pequena e o texto */
+    padding: 10px 18px; 
+    /* adiciona respiro interno para a cápsula ficar elegante */
+    margin: 10px; 
+    /* separa visualmente uma cápsula da outra */
+    border-radius: 999px; 
+    /* deixa o bloco com formato arredondado de pill */
+    background: linear-gradient(135deg, #ffffff 0%, #a1a1a1 100%); 
+    /* aplica o degradê azul parecido com o exemplo */
+    color: #000000; 
+    /* deixa o texto branco para ter contraste com o fundo azul */
+    font-size: 1rem; 
+    /* define um tamanho de texto equilibrado para a cápsula */
+    font-weight: 600; 
+    /* reforça o texto para parecer etiqueta de destaque */
+    line-height: 1; 
+    /* evita altura extra na linha do texto */
+    box-shadow: 0 10px 24px #000000b7; 
+    /* adiciona profundidade suave ao bloco */
+    width: fit-content; 
+    /* faz a largura acompanhar apenas o conteúdo */
+    max-width: 100%; 
+    /* impede que o item ultrapasse o espaço disponível */
+}
+
+.btn img { 
+    /* estiliza a imagem para ela parecer um ícone pequeno */
+    width: 18px; 
+    /* reduz bastante a largura da imagem para parecer ícone */
+    height: 18px; 
+    /* reduz a altura da imagem para manter proporção de ícone */
+    object-fit: contain; 
+    /* garante que a imagem inteira apareça sem cortar */
+    border-radius: 999px; 
+    /* arredonda a imagem para ficar mais próxima de um ícone */
+    padding: 4px; 
+    /* cria um pequeno respiro interno ao redor da imagem */
+    background-color: rgba(255, 255, 255, 0.14); 
+    /* adiciona um fundo suave por trás do ícone */
+    flex-shrink: 0; 
+    /* impede que o ícone encolha quando faltar espaço */
+}
+
+@media (max-width: 768px) { /* ajusta as cápsulas de destaque em telas menores */
+    .hero-badge-top { /* ajusta a distância do btn superior no celular */
+        margin-bottom: 20px; /* reduz o espaço para telas menores */
+    }
+
+    #hero p { /* reduz o espaço do subtítulo no mobile */
+        margin-bottom: 22px; /* aproxima um pouco a fileira inferior */
+    }
+
+    .hero-badges { /* mantém os btn organizados no mobile */
+        gap: 10px; /* reduz o espaçamento entre os btn */
+        margin-bottom: 14px; /* ajusta o espaço abaixo do grupo no celular */
+    }
+
+    .btn { /* reduz a cápsula no mobile */
+        font-size: 0.92rem; /* diminui levemente o texto para caber melhor */
+        padding: 9px 14px; /* reduz o espaço interno para não ficar grande demais */
+    }
+
+    .btn img { /* reduz ainda mais o ícone no celular */
+        width: 16px; /* deixa o ícone menor em telas pequenas */
+        height: 16px; /* mantém a proporção do ícone no mobile */
+    }
+}
+
 #seta {
     position: absolute;
     left: 50%;
@@ -211,7 +319,7 @@
     color: #ffffff;
     text-decoration: none;
     background:
-        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), transparent 45%),
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), transparent 45%),
         linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
     border: 1px solid rgba(255, 255, 255, 0.28);
     box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
@@ -380,7 +488,7 @@
 }
 
 @media (max-width: 900px) {
-
+    
     /* regras só até essa largura: layout responsivo */
     .card-product {
         flex: 0 0 calc(50% - 12px);
@@ -502,7 +610,7 @@
     from {
         transform: translateX(0);
     }
-
+    
     to {
         transform: translateX(-125%);
     }
@@ -515,7 +623,126 @@
     paint-order: stroke fill;
     /* desenha o traço antes do preenchimento: borda visível sem “apagar” o amarelo */
 }
+.localizacao { /* aplica o estilo da seção usando um nome de classe sem acento */
+    /* Bloco de localização: container do mapa/endereço */
+    background: linear-gradient(90deg, #1538fd 0%, #4f8cff 100%); 
+    /* Degrade azul moderno */
+    border-radius: 16px;      
+    /* Cantos bem arredondados para visual suave */
+    padding: 28px 18px;       
+    /* Espaço interno generoso para respiro */
+    margin: 24px auto;        
+    /* Espaço externo e centralização automática */
+    font-size: 1.15rem;       
+    /* Tamanho de fonte acessível e responsivo */
+    color: #fff;              
+    /* Texto branco para contraste */
+    display: flex;            
+    /* Flexbox para alinhar filhos */
+    flex-direction: column;   
+    /* Empilha filhos verticalmente */
+    align-items: center;      
+    /* Centraliza filhos horizontalmente */
+    justify-content: center;  
+    /* Centraliza filhos verticalmente */
+    box-shadow: 0 6px 32px rgba(21, 56, 253, 0.534); 
+    /* Sombra suave para profundidade */
+    max-width: 900px;         
+    /* Limita largura em telas grandes */
+    width: 95%;               
+    /* Responsivo: ocupa quase toda a tela em mobile */
+    transition: box-shadow 0.3s;
+    /* Efeito suave ao passar o mouse */
+}
 
+.localizacao h2 { /* estiliza o título que fica dentro da seção de localização */
+    text-align: center;
+    width: 100%;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.localizacao img { /* estiliza a imagem/ícone exibida dentro da seção de localização */
+    display: block;
+    margin: 0 auto 12px auto;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.18);
+    box-shadow: 0 2px 8px rgba(21,56,253,0.10);
+    padding: 6px;
+}
+
+.localizacao:hover { /* aumenta a sombra quando o mouse passa sobre a seção */
+    /* Destaque ao passar o mouse */
+    box-shadow: 0 12px 48px rgba(21, 56, 253, 0.705);
+}
+
+.nossa-localizacao {/* limita a largura do conteúdo interno do bloco de localização */
+    width: min(100%, 760px); 
+    /* usa 100% em telas pequenas e no máximo 760px em telas maiores */
+}
+
+#maps {/* estiliza o container externo do mapa */
+    width: 100%; 
+    /* faz o bloco do mapa ocupar toda a largura disponível do container pai */
+    min-height: 400px; 
+    /* garante uma altura mínima confortável para o mapa */
+    overflow: hidden; 
+    /* corta qualquer excesso para respeitar as bordas arredondadas */
+    border-radius: 18px; 
+    /* arredonda os cantos do container do mapa */
+    display: flex; 
+    /* usa flex para alinhar o iframe dentro do container */
+    justify-content: center; 
+    /* centraliza o conteúdo na horizontal */
+    align-items: center; 
+    /* centraliza o conteúdo na vertical */
+    background: #f5f7fa; 
+    /* aplica um fundo claro enquanto o mapa carrega */
+    box-shadow: 0 4px 24px rgba(21, 56, 253, 0.10); 
+    /* adiciona sombra suave ao bloco do mapa */
+    margin: 24px auto 0; 
+    /* cria espaço acima e centraliza o bloco horizontalmente */
+    transition: box-shadow 0.3s; 
+    /* suaviza a mudança de sombra no hover */
+}
+
+#maps:hover {/* intensifica a sombra quando o mouse passa sobre o mapa */
+    box-shadow: 0 8px 32px rgba(21, 56, 253, 0.18); 
+    /* aplica uma sombra mais forte no hover */
+}
+
+.map-frame { /* estiliza o iframe do Google Maps */
+    width: 100%; 
+    /* faz o iframe ocupar toda a largura do container */
+    height: 400px; 
+    /* define a altura padrão do mapa em telas maiores */
+    border: 0; 
+    /* remove a borda padrão do iframe */
+    display: block; 
+    /* evita espaços extras de elemento inline */
+}
+
+@media (max-width: 640px) { 
+    /* aplica ajustes específicos para telas menores */
+    .localizacao { 
+        /* ajusta o espaçamento da seção no celular */
+        padding: 22px 14px; 
+        /* reduz o padding para caber melhor em telas estreitas */
+    }
+
+    #maps, 
+    /* seleciona o container do mapa no mobile */
+    .map-frame { 
+        /* seleciona também o iframe do mapa no mobile */
+        min-height: 320px; 
+        /* reduz a altura mínima do mapa em telas pequenas */
+        height: 320px; 
+        /* define uma altura menor para melhorar a responsividade */
+    }
+}
 .img-cmt {
     width: 80px;
     height: 80px;
