@@ -1,0 +1,682 @@
+﻿body {
+    font-family: 'inter', sans-serif;
+    background-color: rgb(226, 226, 226);
+    margin: 0;
+    padding: 0;
+    display: flex;/* flexbox: layout em linha ou coluna sem float */
+    flex-direction: column;
+ /* empilha filhos na vertical (coluna) */
+    min-height: 100vh;
+ /* 100% da altura da janela do navegador (viewport height) */
+}
+#nav{
+    position: sticky;
+    
+    /* mantém a navegação visível enquanto a página rola */
+    top: 0;
+    
+    /* fixa a referência do sticky no topo da janela */
+    z-index: 20;
+    
+    /* garante que a nav fique acima de outros blocos */
+    background-color: rgba(255, 255, 255, 0.432);
+    
+    /* cria um fundo branco semitransparente para dar contraste */
+    backdrop-filter: saturate(180%) blur(20px);
+    
+    /* aplica saturação e desfoque no que estiver atrás da barra */
+    padding: 14px 24px;
+    
+    /* adiciona espaço interno para a nav respirar melhor */
+    margin: 0;
+    
+    /* remove espaço externo para a barra encostar corretamente */
+    border-radius: 0 0 12px 12px;
+    
+    /* arredonda apenas os cantos inferiores da navegação */
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    
+    /* cria uma sombra suave para destacar a nav do conteúdo */
+}
+#nav ul{
+    display: flex;
+    
+    /* ativa flexbox para alinhar os itens da lista */
+    justify-content: center;
+    
+    /* centraliza todos os itens da lista horizontalmente */
+    align-items: row;
+    
+    /* alinha verticalmente os itens no mesmo eixo */
+    flex-wrap: wrap;
+    
+    /* permite quebrar os itens para a linha de baixo no celular */
+    gap: 14px 28px;
+    
+    /* controla o espaçamento entre os links em linha e em quebra */
+    width: 100%;
+    
+    /* faz a lista ocupar toda a largura disponível */
+    margin: 0;
+    
+    /* remove a margem padrão da lista */
+    padding: 0;
+    
+    /* remove o recuo interno padrão do navegador */
+}
+#nav li {
+    list-style-type: none;
+    
+    /* remove o marcador de bolinha dos itens da lista */
+}
+#nav a{
+    text-decoration:none;
+    
+    /* remove o sublinhado padrão dos links */
+    color: #1d242d;
+    
+    /* define uma cor escura para melhorar a leitura dos links */
+    font-weight: 600;
+    
+    /* reforça visualmente os links com peso maior */
+    font-size: 0.98rem;
+    
+    /* ajusta o tamanho do texto para ficar equilibrado */
+    padding: 10px 14px;
+    
+    /* cria uma área clicável mais confortável ao redor do texto */
+    border-radius: 999px;
+    
+    /* deixa o fundo do hover em formato de cápsula */
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    
+    /* suaviza as mudanças visuais de hover */
+}
+
+#nav a:hover{
+    background-color: rgba(14, 38, 173, 0.1);
+    
+    /* adiciona um fundo leve ao passar o mouse */
+    color: #0e26ad;
+    
+    /* muda a cor do texto no hover para destacar o link */
+    transform: translateY(-1px);
+    
+    /* sobe levemente o link para dar sensação de interação */
+}
+
+#logo[src=""]{
+    display: none;
+    
+    /* esconde a imagem quando o src da logo estiver vazio */
+}
+
+#nav img{
+    width: 80%;
+    height: auto;
+    padding: 0;
+    border-radius: 14px;
+    background-color: rgba(255, 255, 255, 0);
+    object-fit: contain;
+ /* mantém proporção da imagem dentro da caixa sem cortar */
+}
+
+@media (max-width: 768px) {
+    #nav {
+        padding: 12px 14px;
+        
+        /* reduz o espaçamento interno da barra em telas menores */
+    }
+
+    #nav ul {
+        gap: 10px 12px;
+        
+        /* diminui a distância entre os itens no celular */
+    }
+
+    #nav a {
+        font-size: 0.92rem;
+        
+        /* reduz um pouco o tamanho do texto em telas menores */
+        padding: 8px 12px;
+        
+        /* reduz a área interna dos links para caber melhor no mobile */
+    }
+}
+#header {
+    flex: 1;
+ /* shorthand flex-grow: ocupa o espaço vertical livre entre header e footer */ 
+}
+#hero {
+    background-image: url('paisagem.jpg');
+    background-color: #000000;
+    color: rgba(255, 255, 255, 0.95);
+ /* rgb + canal alpha (transparência 0–1) */
+    padding: 130px 20px;
+    text-align: center;
+    background-position: center;
+    /* onde a imagem de fundo “ancora” no box */
+    background-size: cover;
+    /* encaixa a imagem cobrindo a área sem distorcer (corta bordas se precisar) */
+    background-repeat: no-repeat;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* alinhamento no eixo principal (vertical aqui) */
+    align-items: center;
+    /* alinhamento no eixo transversal (horizontal aqui) */
+    border-radius: 0 0 10px 10px;
+    /* cantos arredondados só embaixo: top-left top-right bottom-right bottom-left */
+    position: relative;
+    overflow: hidden;
+}
+
+#seta {
+    position: absolute;
+    left: 50%;
+    bottom: 28px;
+    transform: translateX(-50%);
+}
+
+.arrow-down {
+    width: 46px;
+    height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    position: relative;
+    color: #ffffff;
+    text-decoration: none;
+    background:
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), transparent 45%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(8px);
+    animation: floatArrow 2s ease-in-out infinite;
+    transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.arrow-down::before,
+.arrow-down::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    border-right: 3px solid #ffffff;
+    border-bottom: 3px solid #ffffff;
+    transform: translateX(-50%) rotate(225deg);
+}
+
+.arrow-down::before {
+    width: 11px;
+    height: 11px;
+    top: 23px;
+}
+
+.arrow-down::after {
+    width: 8px;
+    height: 8px;
+    top: 14px;
+    opacity: 0.72;
+}
+
+.arrow-down:hover {
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.35);
+}
+
+@keyframes floatArrow {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+}
+
+#features {
+    padding: 100px;
+    background-color: #ffffff;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    /* permite quebrar linha quando não couber na largura */
+    justify-content: center;
+    gap: 21px;
+    /* espaço fixo entre itens flex sem margin em cada um */
+    background-color: #ffffff;
+}
+
+.section-wrapper1 {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.card-feature {
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0 12px 40px rgba(14, 38, 173, 0.568);
+    /* sombra: desloc-x, desloc-y, blur, cor com alpha */
+    padding: 40px;
+    width: 200px;
+    gap: 30px;
+    max-width: 100%;
+    /* em telas estreitas, não ultrapassa 100% do pai */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+}
+
+.card-feature img {
+    width: 80px;
+    height: 80px;
+    padding: 12px;
+    border-radius: 14px;
+    background-color: rgba(0, 38, 255, 0.397);
+    object-fit: contain;
+    /* mantém proporção da imagem dentro da caixa sem cortar */
+}
+
+.section-wrapper2 {
+    padding: 100px;
+    background-color: #ffffff;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.section-wrapper2 h1 {
+    font-size: 2.5rem;
+    /* rem: tamanho relativo à fonte raiz do documento (acessível/escalável) */
+    margin-bottom: 10px;
+}
+
+.section-wrapper2 p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.cards-grid1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin: 100px auto;
+    /* auto nas laterais centraliza o bloco quando há max-width */
+    padding: 10px;
+    background-color: #ffffff;
+    max-width: 1200px;
+    /* limita largura em telas grandes */
+}
+
+.card-product {
+    background-color: rgb(255, 255, 255);
+    border-radius: 18px;
+    box-shadow: 0 12px 40px rgba(14, 38, 173, 0.12);
+    padding: 24px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    /* filhos esticam na largura do card (útil com flex column) */
+    gap: 18px;
+    flex: 0 0 calc(33.333% - 16px);
+    /* não cresce/encolhe; base ~1/3 da linha menos o gap (calc faz a conta) */
+    box-sizing: border-box;
+    /* padding e border entram na largura total (evita “estourar” o layout) */
+}
+
+.card-product img {
+    width: 80%;
+    height: auto;
+    padding: 12px;
+    border-radius: 14px;
+    background-color: rgba(14, 38, 173, 0.08);
+    object-fit: contain;
+    /* mantém proporção da imagem dentro da caixa sem cortar */
+}
+
+@media (max-width: 900px) {
+
+    /* regras só até essa largura: layout responsivo */
+    .card-product {
+        flex: 0 0 calc(50% - 12px);
+    }
+}
+
+@media (max-width: 500px) {
+    .card-product {
+        flex: 0 0 100%;
+    }
+}
+
+.btn-whatsapp {
+    background-color: #25d366;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    margin: 2px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    border: none;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+    cursor: pointer;
+    transition: filter 0.2s ease, transform 0.15s ease;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.btn-whatsapp::before {
+    content: "";
+    flex-shrink: 0;
+    width: 1.45em;
+    height: 1.45em;
+    background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M17.472%2014.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94%201.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198%200-.52.074-.792.372-.272.297-1.04%201.016-1.04%202.479%200%201.462%201.065%202.875%201.213%203.074.149.198%202.096%203.2%205.077%204.487.709.306%201.262.489%201.694.625.712.227%201.36.195%201.872.118.571-.085%201.758-.719%202.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421%207.403h-.004a9.87%209.87%200%2001-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86%209.86%200%2001-1.51-5.26c.001-5.45%204.436-9.884%209.888-9.884%202.64%200%205.122%201.03%206.988%202.898a9.825%209.825%200%20012.893%206.994c-.003%205.45-4.435%209.884-9.885%209.884m8.413-18.297A11.815%2011.815%200%200012.05%200C5.495%200%20.16%205.335.157%2011.892c0%202.096.547%204.142%201.588%205.945L.057%2024l6.305-1.654a11.882%2011.882%200%20005.683%201.448h.005c6.554%200%2011.89-5.335%2011.893-11.893a11.821%2011.821%200%2000-3.48-8.413z%22%2F%3E%3C%2Fsvg%3E") center / contain no-repeat;
+}
+
+.btn-whatsapp:hover {
+    filter: brightness(1.06);
+}
+
+.card-product .btn-whatsapp {
+    align-self: center;
+}
+
+#cta {
+    background-color: #121b2b;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section-wrapper3 h2 {
+    font-size: 2.5rem;
+    /* rem: tamanho relativo à fonte raiz do documento (acessível/escalável) */
+    margin-bottom: 10px;
+}
+
+.track-testimonial {
+    background-color: rgb(255, 255, 255);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-inline-start: 12px;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+    box-sizing: border-box;
+    flex: 0 0 calc(20% - 16px);
+    width: 220px;
+    /* 👈 deixa mais largo */
+    padding: 30px 20px;
+    min-width: 220px;
+    width: max-content;
+    animation: scroll 6s linear infinite;
+    /* 🔥 ALTERADO: antes era mais lento (ex: 20s), agora mais rápido */
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-125%);
+    }
+}
+
+.track-testimonial1 {
+    background-color: rgb(255, 255, 255);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-inline-start: 12px;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+    box-sizing: border-box;
+    flex: 0 0 calc(20% - 16px);
+    width: 220px;
+    /* 👈 deixa mais largo */
+    padding: 30px 20px;
+    min-width: 220px;
+    width: max-content;
+    animation: scroll 6s reverse infinite;
+    /* 🔥 ALTERADO: antes era mais lento (ex: 20s), agora mais rápido */
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-125%);
+    }
+}
+
+.testimonial-stars {
+    color: rgb(255, 230, 0);
+    -webkit-text-stroke: 1px #000;
+    /* prefixo webkit: contorno no traço do texto (estrelas ★) */
+    paint-order: stroke fill;
+    /* desenha o traço antes do preenchimento: borda visível sem “apagar” o amarelo */
+}
+
+.img-cmt {
+    width: 80px;
+    height: 80px;
+    padding: 9px;
+    border-radius: 14px;
+    background-color: rgba(0, 38, 255, 0.397);
+    object-fit: contain;
+    /* mantém proporção da imagem dentro da caixa sem cortar */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 12px;
+}
+
+.carousel1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 43px;
+    /* 👈 AUMENTA ESPAÇO ENTRE OS CARDS */
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0);
+    transition: transform 0.5s ease;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 50px 50px 0 0;
+    box-shadow:
+    0px -10px 20px rgb(0, 0, 0),/* cima */
+    -10px 0px 20px rgba(0, 0, 0, 0.13),/* esquerda */
+    10px 0px 20px rgba(0, 0, 0, 0.13);/* direita */
+}
+
+.carousel2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 43px;
+    /* 👈 AUMENTA ESPAÇO ENTRE OS CARDS */
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0);
+    transition: transform 0.5s ease;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 0 0 50px 50px;
+    box-shadow: 
+    0px 10px 20px rgba(0, 0, 0),/* baixo */
+    -10px 0px 20px rgba(0, 0, 0, 0.13),/* esquerda */
+    10px 0px 20px rgba(0, 0, 0, 0.13);/* direita */
+}
+
+.section-wrapper3 {
+    padding: 1px;
+    background-color: #ffffff00;
+    margin: 22px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .section-wrapper3 {
+        margin: 16px;
+    }
+
+    .carousel1,
+    .carousel2 {
+        width: min(100%, 100%);
+        padding: 24px 12px;
+        gap: 20px;
+    }
+}
+
+/* Rodapé: coluna centralizada (como o layout de referência) */
+footer {
+    background-color: #000000;
+    /* cor de fundo sólida do bloco do rodapé */
+    text-align: center;
+    /* alinha o conteúdo de texto ao centro do footer */
+    padding: 48px 24px;
+    /* espaço interno: vertical maior, laterais fixas */
+    display: flex;
+    /* ativa flexbox para organizar os filhos do footer */
+    flex-direction: column;
+    /* empilha os filhos na vertical (um abaixo do outro) */
+    align-items: center;
+    /* centraliza cada filho no eixo horizontal (largura do footer) */
+    justify-content: center;
+    /* agrupa o conteúdo no centro do eixo vertical disponível */
+    gap: 14px;
+    /* distância uniforme entre cada “fileira” de filhos flex */
+}
+
+footer .footer-line {
+    margin: 0;
+    /* remove margem padrão do parágrafo para o espaçamento vir do gap do footer */
+    color: #474f52;
+    /* cor do texto “Desenvolvido por” */
+    font-size: 1rem;
+    /* tamanho da fonte relativo à raiz (1rem ≈ tamanho base do documento) */
+    font-weight: 400;
+    /* peso normal (não negrito) */
+}
+
+footer .footer-name {
+    margin: 0;
+    /* zera margem para não desalinhar em relação ao gap do footer */
+    color: #ffffff;
+    /* texto do nome em branco para contraste no fundo preto */
+    font-size: 1.65rem;
+    /* destaque: fonte maior que a linha “Desenvolvido por” */
+    font-weight: 700;
+    /* negrito para dar hierarquia visual ao nome */
+    line-height: 1.2;
+    /* altura entre linhas compacta se o nome quebrar em duas linhas */
+}
+
+footer .footer-links {
+    display: flex;
+    /* coloca WhatsApp, pontos e outros links na mesma “linha” lógica */
+    flex-direction: row;
+    /* direção horizontal: itens lado a lado */
+    flex-wrap: wrap;
+    /* em telas estreitas, os itens podem quebrar para a linha de baixo */
+    align-items: center;
+    /* alinha verticalmente links e caracteres • no meio */
+    justify-content: center;
+    /* centraliza o grupo de links no footer */
+    gap: 0.35rem 0.75rem;
+    /* espaço entre linhas (row) e entre colunas (column) ao quebrar */
+    margin: 0;
+    /* sem margem extra fora do bloco de links */
+    font-size: 1rem;
+    /* tamanho base do texto dos links e separadores herdados */
+}
+
+footer .footer-links a {
+    color: #474f52;
+    /* cor padrão dos links antes do passar o mouse */
+    text-decoration: none;
+    /* remove o sublinhado típico de links */
+}
+
+footer .footer-links a.footer-link-whatsapp:hover {
+    color: #25d366;
+    /* ao passar o mouse no WhatsApp, o texto fica verde (marca) */
+}
+
+footer .footer-links a.footer-link-email:hover {
+    color: #ffffff;
+    /* ao passar o mouse no Email, o texto fica branco */
+}
+
+footer .footer-links a.footer-link-instagram:hover {
+    color: #ee2a7b;
+    /* ao passar no Instagram, rosa/magenta no estilo da marca */
+}
+
+footer .footer-dot {
+    color: #474f52;
+    /* cor dos separadores “•” entre os links */
+    user-select: none;
+    /* evita selecionar o ponto com o mouse (só decoração) */
+}
+
+footer .footer-copy {
+    margin: 18px 0 0;
+    /* empurra o copyright para baixo (mais afastado da linha dos links) */
+    color: #34383b;
+    /* cinza escuro para texto secundário (menos destaque que o nome) */
+    font-size: 0.85rem;
+    /* texto do copyright menor que o restante do rodapé */
+    font-weight: 400;
+    /* peso normal do texto legal / copyright */
+}
+
+html {
+    scroll-behavior: smooth;
+}
