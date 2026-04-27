@@ -828,7 +828,7 @@ footer {
     /* cor de fundo sólida do bloco do rodapé */
     text-align: center;
     /* alinha o conteúdo de texto ao centro do footer */
-    padding: 48px 24px;
+    padding: 40px 24px;
     /* espaço interno: vertical maior, laterais fixas */
     display: flex;
     /* ativa flexbox para organizar os filhos do footer */
